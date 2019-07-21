@@ -4,3 +4,4 @@ Assets/Plugins/iOS/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merg
 /Assets/Plugins/MacOS/opencv2.framework/Versions/Current/opencv2 filter=lfs diff=lfs merge=lfs -text
 /Users/matthewhallberg/CloakCV/Plugins/MacOS/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
 /Users/matthewhallberg/CloakCV/Plugins/MacOS/opencv2.framework/Versions/Current/opencv2 filter=lfs diff=lfs merge=lfs -text
+Plugins/MacOS/opencv2.framework/Versions/A/opencv2 filter=lfs diff=lfs merge=lfs -text
