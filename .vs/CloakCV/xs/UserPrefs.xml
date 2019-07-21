@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{811F652B-CC84-E216-0650-021DFFEA647E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NativeLibAdapter.cs">
+    <Files>
+      <File FileName="Assets/Scripts/OpenCV.cs" Line="36" Column="45" />
+      <File FileName="Assets/Scripts/NativeLibAdapter.cs" Line="62" Column="7" />
+      <File FileName="Assets/Scripts/EditorCamFeed.cs" Line="13" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

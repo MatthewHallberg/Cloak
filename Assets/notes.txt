@@ -1,0 +1,20 @@
+HEADER:
+
+/usr/local/Cellar/opencv/4.0.1/include/opencv4
+
+LIBRARY:
+
+/usr/local/Cellar/opencv/4.0.1/lib
+
+-lopencv_ml -lopencv_objdetect -lopencv_dnn -lopencv_core -lopencv_tracking -lopencv_imgproc
+
+BUILD IOS FRAMEWORK:
+python opencv-master/platforms/ios/build_framework.py ios --contrib ./opencv_contrib-master
+
+
+INSTALL INSTRUCTIONS for MAC: 
+
+brew install opencv@4
+
+
+
