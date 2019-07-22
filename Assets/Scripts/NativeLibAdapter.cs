@@ -16,7 +16,7 @@ public class NativeLibAdapter : MonoBehaviour {
     private static extern IntPtr GetRenderEventFunc();
 #elif PLATFORM_IOS
     [DllImport("__Internal")]
-    private static extern void RecieveImage(byte[] bytes, int width, int height);
+    private static extern void RecieveImage(byte[] bytes, int width, int height, bool isGreen);
     [DllImport("__Internal")]
     private static extern void SaveBackground();
     [DllImport("__Internal")]

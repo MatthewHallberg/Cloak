@@ -11,6 +11,9 @@ public class ARCamFeed : MonoBehaviour {
     [SerializeField]
     public ARCameraManager arCameraManager;
 
+    [SerializeField]
+    Transform camImageScreen;
+
     OpenCV openCV;
     Texture2D textureToSend;
     bool texturesCreated;
@@ -18,6 +21,7 @@ public class ARCamFeed : MonoBehaviour {
     public void Init() {
         openCV = GetComponent<OpenCV>();
         arCameraManager.frameReceived += OnCameraFrameReceived;
+        camImageScreen.localScale = Vector3.one;
     }
 
     void OnDisable() {
@@ -32,6 +36,19 @@ public class ARCamFeed : MonoBehaviour {
             return;
         }
 
+        CameraImageTransformation camTransform = CameraImageTransformation.None;
+
+        if (Screen.orientation == ScreenOrientation.Portrait) {
+            //mirror x and turn 180
+            camTransform = CameraImageTransformation.None;
+            camImageScreen.localEulerAngles = new Vector3(0, 0, 180);
+        } else {
+            //assuming landscape left
+            camTransform = CameraImageTransformation.MirrorX;
+            camImageScreen.localEulerAngles = Vector3.zero;
+        }
+
+
         XRCameraImageConversionParams conversionParams = new XRCameraImageConversionParams {
             // Get the entire image
             inputRect = new RectInt(0, 0, image.width, image.height),
@@ -42,8 +59,7 @@ public class ARCamFeed : MonoBehaviour {
             // Choose RGB format
             outputFormat = openCV.sendFormat,
 
-            // Flip across the vertical axis (mirror image)
-            transformation = CameraImageTransformation.MirrorX
+            transformation = camTransform
         };
 
         // See how many bytes we need to store the final image.
