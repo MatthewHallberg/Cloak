@@ -5,9 +5,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0656CD89-E0E3-4D9F-DB04-49687BAD1C32}</ProjectGuid>
+    <ProjectGuid>{2211AE2A-C8D2-83B6-AF51-32910D109D60}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Unity.XR.ARFoundation</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
@@ -47,6 +47,15 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -224,38 +233,8 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Vuforia.UnityExtensions">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.VR">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Graphs">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.WebGL.Extensions">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.OSXStandalone.Extensions">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Advertisements">
-      <HintPath>/Users/matthewhallberg/CloakCV/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>/Users/matthewhallberg/CloakCV/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
@@ -265,9 +244,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/matthewhallberg/CloakCV/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.Purchasing">
-      <HintPath>/Users/matthewhallberg/CloakCV/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2019.1.2f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -622,69 +598,72 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
-      <Project>{EDE48CFA-E9C6-66CB-F43E-070EAA2E76B0}</Project>
-      <Name>UnityEngine.SpatialTracking</Name>
+    <ProjectReference Include="Unity.XR.ARKit.csproj">
+      <Project>{ACBEA047-DBA3-8E52-3522-621A7126C7D7}</Project>
+      <Name>Unity.XR.ARKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Subsystem.Registration.csproj">
+      <Project>{23965A9C-513A-63AA-8865-1A71BA61BCA2}</Project>
+      <Name>Unity.Subsystem.Registration</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.ARSubsystems.csproj">
       <Project>{5C4B56E0-C4A7-2098-2B16-041850FBE6CB}</Project>
       <Name>Unity.XR.ARSubsystems</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARSubsystems.Editor.csproj">
+      <Project>{BAAEB68A-6CEE-5794-7F4F-40273E161236}</Project>
+      <Name>Unity.XR.ARSubsystems.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARCore.csproj">
+      <Project>{ED5A4B89-D54F-2EB2-5FDB-5EFDFD72CDD2}</Project>
+      <Name>Unity.XR.ARCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARFoundation.Editor.csproj">
+      <Project>{CDFA004F-269F-983D-DDCE-81EC1EF60C67}</Project>
+      <Name>Unity.XR.ARFoundation.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{3A848AB7-9891-EDDA-D555-BF184C2F81F4}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARFoundation.csproj">
+      <Project>{0656CD89-E0E3-4D9F-DB04-49687BAD1C32}</Project>
+      <Name>Unity.XR.ARFoundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARCore.Editor.csproj">
+      <Project>{301999FB-2218-B418-9183-3FFAC6E56807}</Project>
+      <Name>Unity.XR.ARCore.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.CollabProxy.Editor.csproj">
+      <Project>{C12CEEC6-100C-58A2-DE36-314E4DE5E40B}</Project>
+      <Name>Unity.CollabProxy.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.SpatialTracking.csproj">
+      <Project>{779568FA-8B74-9FC0-8E1A-6EBB501CEFE6}</Project>
+      <Name>UnityEditor.SpatialTracking</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
+      <Project>{EDE48CFA-E9C6-66CB-F43E-070EAA2E76B0}</Project>
+      <Name>UnityEngine.SpatialTracking</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{07A21C90-D344-AE1A-8456-9910C203B41A}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Analytics.DataPrivacy.csproj">
+      <Project>{D6E266C6-3D1F-28C8-9FEB-2A01E44DBF77}</Project>
+      <Name>Unity.Analytics.DataPrivacy</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.XR.ARKit.Editor.csproj">
+      <Project>{CE0BAB3B-3E25-0A80-5873-65A16824A128}</Project>
+      <Name>Unity.XR.ARKit.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARBackgroundRendererAsset.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARCameraBackground.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARCameraFrameEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARCameraManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\AREnvironmentProbe.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\AREnvironmentProbeManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\AREnvironmentProbePlacementType.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\AREnvironmentProbesChangedEvent.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFace.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFaceManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFaceMeshVisualizer.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFacesChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFaceUpdatedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFoundationBackgroundRenderer.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARFoundationBackgroundRendererChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARInputManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARLightEstimationData.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlane.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlaneBoundaryChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlaneManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlaneMeshGenerators.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlaneMeshVisualizer.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPlanesChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloud.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloudChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloudManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloudMeshVisualizer.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloudParticleVisualizer.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARPointCloudUpdatedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARRaycastHit.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARRaycastManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARReferencePoint.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARReferencePointManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARReferencePointsChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARSession.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARSessionOrigin.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARSessionState.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARSessiontateChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackable.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackableManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedImage.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedImageManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedImagesChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedObject.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedObjectManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARTrackedObjectsChangedEventArgs.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\ARUpdateOrder.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\IRaycaster.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\PlaneDetectionModeMaskAttribute.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\PoseExtensions.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\SubsystemLifecycleManager.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\TrackableCollection.cs" />
-    <Compile Include="Packages\com.unity.xr.arfoundation\Runtime\AR\TransformExtensions.cs" />
+    <Compile Include="Assets\Scripts\ARCamFeed.cs" />
+    <Compile Include="Assets\Scripts\EditorCamFeed.cs" />
+    <Compile Include="Assets\Scripts\NativeLibAdapter.cs" />
+    <Compile Include="Assets\Scripts\OpenCV.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\MacOS\macPlugin.bundle\Contents\Resources\gl3w\readme.txt" />
