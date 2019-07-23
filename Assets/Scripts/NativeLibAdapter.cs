@@ -24,13 +24,13 @@ public class NativeLibAdapter : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern IntPtr GetRenderEventFunc();
 #else
-    [DllImport("androidPlugin")]
-    private static extern void RecieveImage(byte[] bytes, int width, int height);
-    [DllImport("androidPlugin")]
+    [DllImport("OpenCVPlugin")]
+    private static extern int RecieveImage(byte[] bytes, int width, int height, bool isGreen);
+    [DllImport("OpenCVPlugin")]
     private static extern void SaveBackground();
-    [DllImport("androidPlugin")]
+    [DllImport("OpenCVPlugin")]
     private static extern void SetViewTextureFromUnity(IntPtr texture, int w, int h);
-    [DllImport("androidPlugin")]
+    [DllImport("OpenCVPlugin")]
     private static extern IntPtr GetRenderEventFunc();
 #endif
 

@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ARCamFeed.cs">
     <Files>
       <File FileName="Assets/Scripts/OpenCV.cs" Line="59" Column="45" />
-      <File FileName="Assets/Scripts/NativeLibAdapter.cs" Line="25" Column="55" />
+      <File FileName="Assets/Scripts/NativeLibAdapter.cs" Line="33" Column="32" />
       <File FileName="Assets/Scripts/EditorCamFeed.cs" Line="13" Column="26" />
-      <File FileName="Assets/Scripts/ARCamFeed.cs" Line="43" Column="59" />
+      <File FileName="Assets/Scripts/ARCamFeed.cs" Line="58" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

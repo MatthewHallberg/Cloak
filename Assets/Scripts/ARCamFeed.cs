@@ -12,7 +12,7 @@ public class ARCamFeed : MonoBehaviour {
     public ARCameraManager arCameraManager;
 
     [SerializeField]
-    Transform camImageScreen;
+    public Transform camImageScreen;
 
     OpenCV openCV;
     Texture2D textureToSend;
@@ -54,7 +54,8 @@ public class ARCamFeed : MonoBehaviour {
             inputRect = new RectInt(0, 0, image.width, image.height),
 
             // Downsample
-            outputDimensions = new Vector2Int(image.width / 3, image.height / 3),
+            //outputDimensions = new Vector2Int(image.width / 3, image.height / 3),
+            outputDimensions = new Vector2Int(image.width, image.height),
 
             // Choose RGB format
             outputFormat = openCV.sendFormat,
