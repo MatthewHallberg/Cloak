@@ -36,6 +36,7 @@ public class ARCamFeed : MonoBehaviour {
             return;
         }
 
+        //figure out cam transform
         CameraImageTransformation camTransform = CameraImageTransformation.None;
 
         if (Screen.orientation == ScreenOrientation.Portrait) {
@@ -48,14 +49,21 @@ public class ARCamFeed : MonoBehaviour {
             camImageScreen.localEulerAngles = Vector3.zero;
         }
 
+        //downsample to save fps if needed
+        Vector2Int outputSize;
+
+        if (image.width > 1280) {
+            outputSize = new Vector2Int(image.width/2, image.height/2);
+        } else {
+            outputSize = new Vector2Int(image.width, image.height);
+        }
 
         XRCameraImageConversionParams conversionParams = new XRCameraImageConversionParams {
             // Get the entire image
             inputRect = new RectInt(0, 0, image.width, image.height),
 
-            // Downsample
-            //outputDimensions = new Vector2Int(image.width / 3, image.height / 3),
-            outputDimensions = new Vector2Int(image.width, image.height),
+            // Downsample if needed
+            outputDimensions = outputSize,
 
             // Choose RGB format
             outputFormat = openCV.sendFormat,
