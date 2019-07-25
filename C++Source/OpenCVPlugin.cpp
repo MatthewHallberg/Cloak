@@ -20,8 +20,15 @@ unsigned char* GetCurrImage(){
 
 extern "C" {
     
-    void SaveBackground(){
-        frame.copyTo(background);
+    void SetBackground(unsigned char* bytes, int width, int height, bool mirror, bool rotate){
+        Mat temp = Mat(height, width, CV_8UC3, static_cast<void*>(bytes));
+        if (mirror){
+            flip(temp, temp, 1);
+        }
+        if (rotate){
+            cv::rotate(temp, temp, ROTATE_90_CLOCKWISE);
+        }
+        resize(temp, background, Size(frame.cols,frame.rows), 0, 0, INTER_LINEAR);
     }
     
     void RecieveImage(unsigned char* bytes, int width, int height, bool isGreen){
@@ -74,4 +81,6 @@ extern "C" {
         }
     }
 }
+
+
 

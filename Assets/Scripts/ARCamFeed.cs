@@ -39,15 +39,9 @@ public class ARCamFeed : MonoBehaviour {
         //figure out cam transform
         CameraImageTransformation camTransform = CameraImageTransformation.None;
 
-        if (Screen.orientation == ScreenOrientation.Portrait) {
-            //mirror x and turn 180
-            camTransform = CameraImageTransformation.None;
-            camImageScreen.localEulerAngles = new Vector3(0, 0, 180);
-        } else {
-            //assuming landscape left
-            camTransform = CameraImageTransformation.MirrorX;
-            camImageScreen.localEulerAngles = Vector3.zero;
-        }
+        //assume portrait only for now
+        camTransform = CameraImageTransformation.MirrorX;
+        camImageScreen.localEulerAngles = new Vector3(0, 0, -90);
 
         //downsample to save fps if needed
         Vector2Int outputSize;

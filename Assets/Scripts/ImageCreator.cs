@@ -30,8 +30,7 @@ public class ImageCreator : MonoBehaviour {
 
     public void SendCurrentBackground() {
         videoPlayer.Stop();
-
-        openCV.SetBackgroundImage(openCV.currentCamImage, false);
+        openCV.SetBackgroundImage(openCV.currentCamImage, false, false);
     }
 
     public void SendCustomBackground() {
@@ -40,7 +39,11 @@ public class ImageCreator : MonoBehaviour {
         tempTexture.Resize(customImage.width, customImage.height);
         tempTexture.SetPixels32(customImage.GetPixels32());
         tempTexture.Apply();
-        openCV.SetBackgroundImage(tempTexture, true);
+#if UNITY_EDITOR
+        openCV.SetBackgroundImage(tempTexture, true, false);
+#else
+        openCV.SetBackgroundImage(tempTexture, false, true);
+#endif
     }
 
     void UpdateVideoFrame() {
@@ -52,6 +55,10 @@ public class ImageCreator : MonoBehaviour {
         tempTexture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
         tempTexture.Apply();
         RenderTexture.active = null;
-        openCV.SetBackgroundImage(tempTexture, true);
+#if UNITY_EDITOR
+        openCV.SetBackgroundImage(tempTexture, true, false);
+#else
+        openCV.SetBackgroundImage(tempTexture, false, true);
+#endif
     }
 }

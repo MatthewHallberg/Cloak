@@ -9,7 +9,7 @@ public class NativeLibAdapter : MonoBehaviour {
     [DllImport("macPlugin")]
     private static extern int RecieveImage(byte[] bytes, int width, int height, bool isGreen);
     [DllImport("macPlugin")]
-    private static extern void SetBackground(byte[] bytes, int width, int height, bool mirror);
+    private static extern void SetBackground(byte[] bytes, int width, int height, bool mirror, bool rotate);
     [DllImport("macPlugin")]
     private static extern void SetViewTextureFromUnity(IntPtr texture, int w, int h);
     [DllImport("macPlugin")]
@@ -18,7 +18,7 @@ public class NativeLibAdapter : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern void RecieveImage(byte[] bytes, int width, int height, bool isGreen);
     [DllImport("__Internal")]
-    private static extern void SaveBackground();
+    private static extern void SetBackground(byte[] bytes, int width, int height, bool mirror, bool rotate);
     [DllImport("__Internal")]
     private static extern void SetViewTextureFromUnity(IntPtr texture, int w, int h);
     [DllImport("__Internal")]
@@ -27,7 +27,7 @@ public class NativeLibAdapter : MonoBehaviour {
     [DllImport("OpenCVPlugin")]
     private static extern int RecieveImage(byte[] bytes, int width, int height, bool isGreen);
     [DllImport("OpenCVPlugin")]
-    private static extern void SaveBackground();
+    private static extern void SetBackground(byte[] bytes, int width, int height, bool mirror, bool rotate);
     [DllImport("OpenCVPlugin")]
     private static extern void SetViewTextureFromUnity(IntPtr texture, int w, int h);
     [DllImport("OpenCVPlugin")]
@@ -53,8 +53,8 @@ public class NativeLibAdapter : MonoBehaviour {
         }
     }
 
-    public void SendBackgroundImage(Texture2D tex, bool mirror) {
-        SetBackground(tex.GetRawTextureData(), tex.width, tex.height, mirror);
+    public void SendBackgroundImage(Texture2D tex, bool mirror, bool rotate) {
+        SetBackground(tex.GetRawTextureData(), tex.width, tex.height, mirror, rotate);
     }
 
     public void SendImage(Texture2D tex) {

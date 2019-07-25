@@ -661,7 +661,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ARCamFeed.cs" />
+    <Compile Include="Assets\Scripts\ButtonAnim.cs" />
+    <Compile Include="Assets\Scripts\ButtonParent.cs" />
     <Compile Include="Assets\Scripts\EditorCamFeed.cs" />
+    <Compile Include="Assets\Scripts\ImageCreator.cs" />
     <Compile Include="Assets\Scripts\NativeLibAdapter.cs" />
     <Compile Include="Assets\Scripts\OpenCV.cs" />
   </ItemGroup>
