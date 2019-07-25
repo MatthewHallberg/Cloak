@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class OpenCV : MonoBehaviour {
 
     [HideInInspector]
+    public Texture2D currentCamImage;
+
+    [HideInInspector]
     public TextureFormat sendFormat = TextureFormat.RGB24;
     [HideInInspector]
     public TextureFormat viewFormat = TextureFormat.RGBA32;
@@ -31,12 +34,6 @@ public class OpenCV : MonoBehaviour {
 #endif
     }
 
-    private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            nativeLibAdapter.SaveSnapshot();
-        }
-    }
-
     public void CreateWritableTexture(int width, int height) {
 
         Debug.Log(width + " : " + height);
@@ -55,7 +52,12 @@ public class OpenCV : MonoBehaviour {
         nativeLibAdapter.StartOnRenderEvent();
     }
 
+    public void SetBackgroundImage(Texture2D texture, bool mirror) {
+        nativeLibAdapter.SendBackgroundImage(texture, mirror);
+    }
+
     public void ProcessImage(Texture2D texture) {
+        currentCamImage = texture;
         nativeLibAdapter.SendImage(texture);
     }
 }

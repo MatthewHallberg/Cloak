@@ -9,7 +9,7 @@ public class NativeLibAdapter : MonoBehaviour {
     [DllImport("macPlugin")]
     private static extern int RecieveImage(byte[] bytes, int width, int height, bool isGreen);
     [DllImport("macPlugin")]
-    private static extern void SaveBackground();
+    private static extern void SetBackground(byte[] bytes, int width, int height, bool mirror);
     [DllImport("macPlugin")]
     private static extern void SetViewTextureFromUnity(IntPtr texture, int w, int h);
     [DllImport("macPlugin")]
@@ -53,9 +53,8 @@ public class NativeLibAdapter : MonoBehaviour {
         }
     }
 
-    public void SaveSnapshot() {
-        SaveBackground();
-        Debug.Log("Saving snapshot...");
+    public void SendBackgroundImage(Texture2D tex, bool mirror) {
+        SetBackground(tex.GetRawTextureData(), tex.width, tex.height, mirror);
     }
 
     public void SendImage(Texture2D tex) {

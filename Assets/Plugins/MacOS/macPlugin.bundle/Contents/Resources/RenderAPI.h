@@ -25,6 +25,9 @@ public:
 
 	// End modifying texture data.
 	virtual void EndModifyTexture(void* textureHandle, int textureWidth, int textureHeight, int rowPitch, void* dataPtr) = 0;
+    
+    virtual void ReadPixels(void* textureHandle, int textureWidth, int textureHeight, int rowPitch, void* output) = 0;
+
 };
 
 // Create a graphics API implementation instance for the given API type.
