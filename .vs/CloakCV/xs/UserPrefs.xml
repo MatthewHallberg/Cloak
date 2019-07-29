@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{811F652B-CC84-E216-0650-021DFFEA647E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ImageCreator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ButtonParent.cs">
     <Files>
-      <File FileName="Assets/Scripts/NativeLibAdapter.cs" Line="56" Column="36" />
-      <File FileName="Assets/Scripts/OpenCV.cs" Line="55" Column="35" />
-      <File FileName="Assets/Scripts/ImageCreator.cs" Line="55" Column="16" />
+      <File FileName="Assets/Scripts/ButtonAnim.cs" Line="24" Column="35" />
+      <File FileName="Assets/Scripts/ButtonParent.cs" Line="15" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

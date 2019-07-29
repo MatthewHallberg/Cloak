@@ -15,8 +15,11 @@ public class ButtonParent : MonoBehaviour {
         }
     }
 
-    void Update() {
+    private void Start() {
+        ActivateOutline(false);
+    }
 
+    void Update() {
         if (Input.GetMouseButtonDown(0) && desiredScale == Vector2.zero) {
             OpenMenu();
         }
@@ -27,9 +30,17 @@ public class ButtonParent : MonoBehaviour {
 
     public void OpenMenu() {
         desiredScale = new Vector2(125, 125);
+        ActivateOutline(true);
     }
 
     public void CloseMenu() {
         desiredScale = Vector2.zero;
+        ActivateOutline(false);
+    }
+
+    void ActivateOutline(bool active) {
+        foreach (Transform child in children) {
+            child.GetChild(0).gameObject.SetActive(active);
+        }
     }
 }

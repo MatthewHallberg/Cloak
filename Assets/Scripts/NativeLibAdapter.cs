@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NativeLibAdapter : MonoBehaviour {
 
+    const bool IS_GREEN = true;//tracks red if false
+
 #if UNITY_EDITOR
     [DllImport("macPlugin")]
     private static extern int RecieveImage(byte[] bytes, int width, int height, bool isGreen);
@@ -58,7 +60,6 @@ public class NativeLibAdapter : MonoBehaviour {
     }
 
     public void SendImage(Texture2D tex) {
-       bool isGreen = true;
-       RecieveImage(tex.GetRawTextureData(), tex.width, tex.height, isGreen);
+       RecieveImage(tex.GetRawTextureData(), tex.width, tex.height, IS_GREEN);
     }
 }
